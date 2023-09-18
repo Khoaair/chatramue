@@ -1,24 +1,69 @@
+'use client';
 import Link from 'next/link';
 import styles from './page.module.scss';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBoxArchive,
+  faGear,
+  faHouse,
+  faList,
+  faShop,
+} from '@fortawesome/free-solid-svg-icons';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     <aside className={styles.nav}>
-      <Link href={'/'} className={styles.nav__logo}>
-        <Image
-          src='https://chatramue.com/cdn/shop/files/ChaTraMue2_a1f8934c-a3cc-46da-a2be-58cc9f716369_360x.png?v=1613698723'
-          alt=''
-          fill={true}
-          className={styles.logo__image}
-        />
+      <Link href={'/'} className={styles.nav__admin}>
+        <FontAwesomeIcon icon={faShop} className={styles.admin__icons} />
+        <span>Chatramue Admin</span>
       </Link>
-      <nav>
-        <Link href={'/dashboard'}>
+      <nav className={styles.nav__menu}>
+        <Link
+          href={'/'}
+          className={`${
+            pathname === '/'
+              ? `${styles.nav__items} ${styles.nav__active}`
+              : styles.nav__items
+          }`}
+        >
           <FontAwesomeIcon icon={faHouse} className={styles.nav__icons} />
-          Dashboard
+          <span>Dashboard</span>
+        </Link>
+        <Link
+          href={'/products'}
+          className={`${
+            pathname === '/products'
+              ? `${styles.nav__items} ${styles.nav__active}`
+              : styles.nav__items
+          }`}
+        >
+          <FontAwesomeIcon icon={faBoxArchive} className={styles.nav__icons} />
+          <span>Products</span>
+        </Link>
+        <Link
+          href={'/orders'}
+          className={`${
+            pathname === '/orders'
+              ? `${styles.nav__items} ${styles.nav__active}`
+              : styles.nav__items
+          }`}
+        >
+          <FontAwesomeIcon icon={faList} className={styles.nav__icons} />
+          <span>Orders</span>
+        </Link>
+        <Link
+          href={'/settings'}
+          className={`${
+            pathname === '/settings'
+              ? `${styles.nav__items} ${styles.nav__active}`
+              : styles.nav__items
+          }`}
+        >
+          <FontAwesomeIcon icon={faGear} className={styles.nav__icons} />
+          <span>Settings</span>
         </Link>
       </nav>
     </aside>

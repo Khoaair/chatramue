@@ -1,12 +1,40 @@
+@import '../../styles/abstracts/variables.module';
 .nav {
   padding: 1.6rem;
-  min-height: 100vh;
+  padding-right: 0;
+  color: white;
 
-  &__logo {
+  &__admin {
     display: flex;
-    position: relative;
-    width: 15.2rem;
-    height: 4rem;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.6rem;
+    margin-right: 1.6rem;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 1.2rem;
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem;
+  }
+  &__icons {
+    width: 2rem;
+    height: 2rem;
+  }
+  &__active {
+    color: $color-primary;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
   }
 }
 
@@ -14,7 +42,7 @@
   object-fit: cover;
 }
 
-.nav__icons {
+.admin__icons {
   width: 2rem;
   height: 2rem;
 }

@@ -2,6 +2,7 @@ import '../styles/main.scss';
 import { Inter } from 'next/font/google';
 import AuthProvider from '../components/authProvider/AuthProvider';
 import Navbar from '@/components/navbar/Navbar';
+import styles from './page.module.scss';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <Navbar>{children}</Navbar>
+          <div className={styles.login__dashboard}>
+            <Navbar />
+            <div className={styles.dashboard__items}>{children}</div>
+          </div>
         </AuthProvider>
       </body>
     </html>
