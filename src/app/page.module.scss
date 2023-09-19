@@ -20,20 +20,20 @@
       cursor: pointer;
     }
   }
+
+  &__dashboard {
+    min-height: 100vh;
+    display: flex;
+    background-color: $color-primary;
+  }
 }
 
-.layout {
-  min-height: 100vh;
-  display: flex;
-  background-color: $color-primary;
-
-  &__items {
-    background-color: white;
-    font-size: 2.4rem;
-    flex-grow: 1;
-    margin-top: 0.8rem;
-    margin-right: 0.8rem;
-    border-radius: 10px;
-    padding: 1.6rem;
-  }
+.dashboard__items {
+  background-color: white;
+  font-size: 2.4rem;
+  flex-grow: 1;
+  margin-top: 0.8rem;
+  margin-right: 0.8rem;
+  border-radius: 10px;
+  padding: 1.6rem;
 }

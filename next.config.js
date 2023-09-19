@@ -11,10 +11,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'chatramue.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'lh3.googleusercontent.com',
-      },
     ],
   },
 };
