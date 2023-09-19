@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import AuthProvider from '../components/authProvider/AuthProvider';
 import Navbar from '@/components/navbar/Navbar';
 import styles from './page.module.scss';
+import Header from '@/components/header/Header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <div className={styles.layout}>
             <Navbar />
-            <div className={styles.layout__container}>{children}</div>
+            <div className={styles.layout__container}>
+              <Header />
+              {children}
+            </div>
           </div>
         </AuthProvider>
       </body>
