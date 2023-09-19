@@ -36,6 +36,20 @@
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
   }
+  &__signout {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem;
+    border: none;
+    margin-top: 1.6rem;
+    background-color: inherit;
+    width: 100%;
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .logo__image {

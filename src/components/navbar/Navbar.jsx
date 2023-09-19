@@ -7,12 +7,26 @@ import {
   faGear,
   faHouse,
   faList,
+  faRightFromBracket,
   faShop,
 } from '@fortawesome/free-solid-svg-icons';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { signOut, useSession } from 'next-auth/react';
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  console.log(session, status);
+  if (
+    (status === 'unauthenticated' && pathname === '/') ||
+    pathname === '/products' ||
+    pathname === '/orders' ||
+    pathname === '/settings'
+  ) {
+    router.push('/login');
+  }
 
   return (
     <aside className={styles.nav}>
@@ -66,6 +80,22 @@ const Navbar = () => {
           <span>Settings</span>
         </Link>
       </nav>
+      {status === 'unauthenticated' ? (
+        ''
+      ) : (
+        <button
+          className={styles.nav__signout}
+          onClick={() => {
+            signOut();
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faRightFromBracket}
+            className={styles.nav__icons}
+          />
+          <span>sign out</span>
+        </button>
+      )}
     </aside>
   );
 };

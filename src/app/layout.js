@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <div className={styles.login__dashboard}>
+          <div className={styles.layout}>
             <Navbar />
-            <div className={styles.dashboard__items}>{children}</div>
+            <div className={styles.layout__container}>{children}</div>
           </div>
         </AuthProvider>
       </body>
