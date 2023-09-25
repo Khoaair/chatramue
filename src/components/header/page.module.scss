@@ -1,0 +1,46 @@
+@import '../../styles/abstracts/variables.module';
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 2rem;
+    color: $color-primary;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__image {
+    border-radius: 100px;
+    object-fit: cover;
+  }
+
+  &__username {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: $color-primary;
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem;
+    border: none;
+    background-color: inherit;
+    color: $color-primary;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icons {
+    width: 2rem;
+    height: 2rem;
+  }
+}

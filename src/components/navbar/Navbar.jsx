@@ -7,12 +7,28 @@ import {
   faGear,
   faHouse,
   faList,
+  faRightFromBracket,
   faShop,
 } from '@fortawesome/free-solid-svg-icons';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const { data, status } = useSession();
+  const router = useRouter();
+  console.log(pathname, data, status);
+
+  if (
+    status === 'unauthenticated' &&
+    (pathname === '/' ||
+      pathname === '/products' ||
+      pathname === '/orders' ||
+      pathname === '/settings')
+  ) {
+    router.push('/login');
+  }
 
   return (
     <aside className={styles.nav}>
