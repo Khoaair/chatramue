@@ -14,7 +14,6 @@ const Header = () => {
   if (status === 'authenticated') {
     return (
       <div className={styles.header}>
-        <h2 className={styles.header__title}>Hello, {data?.user?.name}</h2>
         <div className={styles.header__container}>
           <Image
             src={data?.user?.image}
@@ -24,18 +23,18 @@ const Header = () => {
             className={styles.header__image}
           />
           <span className={styles.header__username}>{data?.user?.name}</span>
-          <button
-            className={styles.header__logout}
-            onClick={() => {
-              signOut();
-            }}
-          >
-            <FontAwesomeIcon
-              icon={faRightFromBracket}
-              className={styles.header__icons}
-            />
-          </button>
         </div>
+        <button
+          className={styles.header__logout}
+          onClick={() => {
+            signOut();
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faRightFromBracket}
+            className={styles.header__icons}
+          />
+        </button>
       </div>
     );
   } else {

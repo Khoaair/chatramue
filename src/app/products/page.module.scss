@@ -1,0 +1,13 @@
+@import '../../styles/abstracts/variables.module';
+.products {
+  &__btn {
+    background-color: $color-primary;
+    font-size: 1.8rem;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

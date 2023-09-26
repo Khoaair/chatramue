@@ -1,0 +1,11 @@
+@import '../../../styles/abstracts/variables.module';
+.product {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+}
