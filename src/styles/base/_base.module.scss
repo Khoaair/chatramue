@@ -39,3 +39,13 @@ label {
   font-weight: bold;
   color: $color-primary;
 }
+table.basic {
+  width: 100%;
+}
+table.basic thead tr td {
+  background-color: #dbeafe;
+}
+table.basic tr td {
+  border: 1px solid #bfdbfe;
+  padding: 0.4rem;
+}

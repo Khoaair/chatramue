@@ -4,11 +4,13 @@ const { Schema } = mongoose;
 
 const productSchema = new Schema(
   {
-    name: { type: String, require: true },
+    productName: { type: String, require: true },
     desc: { type: String, require: true },
     price: { type: Number, require: true },
+    user: { type: String, require: true },
   },
   { timestamps: true }
 );
 
-export default mongoose.model('Product', productSchema);
+export default mongoose.models.Product ??
+  mongoose.model('Product', productSchema);
