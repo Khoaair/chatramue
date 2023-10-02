@@ -2,6 +2,8 @@
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
+import './page.module.scss';
+
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
@@ -48,19 +50,31 @@ const rows = [
 
 export default function DataGridDemo() {
   return (
-    <Box sx={{ height: 400, width: '100%' }}>
+    <Box sx={{ width: '100%' }}>
       <DataGrid
-        sx={{ fontSize: '3.2rem' }}
+        sx={{
+          marginTop: '1.2rem',
+          fontSize: '1.6rem',
+          '& .MuiTablePagination-input': {
+            fontSize: '1.6rem',
+          },
+          '& .MuiTablePagination-selectLabel': {
+            fontSize: '1.6rem',
+          },
+          '& .MuiTablePagination-displayedRows': {
+            fontSize: '1.6rem',
+          },
+        }}
         rows={rows}
         columns={columns}
         initialState={{
           pagination: {
             paginationModel: {
-              pageSize: 5,
+              pageSize: 10,
             },
           },
         }}
-        pageSizeOptions={[5]}
+        pageSizeOptions={[5, 10, 20]}
         checkboxSelection
         disableRowSelectionOnClick
       />

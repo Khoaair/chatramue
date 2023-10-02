@@ -60,6 +60,17 @@ const Navbar = () => {
           <span>Products</span>
         </Link>
         <Link
+          href={'/category'}
+          className={`${
+            pathname === '/category'
+              ? `${styles.nav__items} ${styles.nav__active}`
+              : styles.nav__items
+          }`}
+        >
+          <FontAwesomeIcon icon={faGear} className={styles.nav__icons} />
+          <span>Category</span>
+        </Link>
+        <Link
           href={'/orders'}
           className={`${
             pathname === '/orders'
