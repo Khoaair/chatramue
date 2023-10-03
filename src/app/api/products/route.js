@@ -1,7 +1,6 @@
 import Product from '@/app/models/Product';
 import connect from '@/utils/db';
 import { NextResponse } from 'next/server';
-import { toast } from 'react-toastify';
 
 export const POST = async request => {
   const body = await request.json();
@@ -26,7 +25,12 @@ export const GET = async request => {
   }
 };
 
-export const DELETE = async request => {
+export const DELETE = async (request, { params }) => {
+  const { id } = params;
   try {
-  } catch (error) {}
+    await connect();
+    await Product.findByIdAndDelete(id);
+  } catch (error) {
+    return new NextResponse('Database Err', { status: 500 });
+  }
 };

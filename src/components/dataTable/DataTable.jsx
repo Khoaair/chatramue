@@ -5,9 +5,17 @@ import styles from './page.module.scss';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 
-const deleteProduct = id => {
-  console.log(id);
+const deleteProduct = async id => {
+  try {
+    await fetch(`/api/products/${id}`, {
+      method: 'DELETE',
+    });
+    toast.success('Product has been deleted');
+  } catch (error) {
+    toast.error(error);
+  }
 };
 
 const columns = [
@@ -54,7 +62,6 @@ const columns = [
 ];
 
 const DataTable = products => {
-  console.log(products);
   return (
     <Box sx={{ width: '100%' }}>
       <DataGrid
