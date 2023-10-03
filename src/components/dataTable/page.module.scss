@@ -1,3 +1,17 @@
+.table__action {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
 .table__edit {
-  background-color: red;
+  color: green;
+}
+
+.table__delete {
+  color: red;
+  background-color: inherit;
+  &:hover {
+    cursor: pointer;
+  }
 }

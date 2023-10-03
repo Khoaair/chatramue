@@ -3,7 +3,12 @@ import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import styles from './page.module.scss';
 import Link from 'next/link';
-import { getProducts } from '@/utils/getProducts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+
+const deleteProduct = id => {
+  console.log(id);
+};
 
 const columns = [
   { field: '_id', headerName: 'ID', width: 120 },
@@ -32,18 +37,24 @@ const columns = [
     width: 150,
     renderCell: params => {
       return (
-        <>
-          <Link href={'/products/eidt'} className={styles.table__edit}>
-            Edit
+        <div className={styles.table__action}>
+          <Link href={`/products/${params.id}`} className={styles.table__edit}>
+            <FontAwesomeIcon icon={faPenToSquare} />
           </Link>
-        </>
+          <button
+            className={styles.table__delete}
+            onClick={() => deleteProduct(params.id)}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+        </div>
       );
     },
   },
 ];
 
-const DataTable = async () => {
-  const products = await getProducts();
+const DataTable = products => {
+  console.log(products);
   return (
     <Box sx={{ width: '100%' }}>
       <DataGrid
@@ -60,7 +71,7 @@ const DataTable = async () => {
             fontSize: '1.6rem',
           },
         }}
-        rows={products}
+        rows={products.products}
         getRowId={r => r._id}
         columns={columns}
         initialState={{

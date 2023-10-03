@@ -19,7 +19,7 @@ const Products = async () => {
       <Link href={'/products/new'} className={styles.products__btn}>
         Add new product
       </Link>
-      <DataTable />
+      <DataTable products={products} />
     </div>
   );
 };

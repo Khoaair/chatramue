@@ -25,3 +25,8 @@ export const GET = async request => {
     return new NextResponse('Database Err', { status: 500 });
   }
 };
+
+export const DELETE = async request => {
+  try {
+  } catch (error) {}
+};
